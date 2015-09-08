@@ -8,5 +8,9 @@
   "hubot-maps",
   "hubot-redis-brain",
   "hubot-rules",
-  "hubot-shipit"
+  "hubot-shipit",
+  "hubot-jira-lookup",
+  "hubot-google-hangouts",
+  "hubot-has-no-idea",
+  "hubot-xkcd"
 ]
