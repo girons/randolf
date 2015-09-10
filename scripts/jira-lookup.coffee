@@ -85,9 +85,9 @@ module.exports = (robot) ->
               }
             }
 
-            fallback = "#{data.issuetype.value} #{data.key.value} (#{data.status.value}) #{data.summary.value}\n"
+            fallback = "```#{data.issuetype.value} #{data.key.value} (#{data.status.value}) #{data.summary.value}\n"
             fallback += "Assignee: #{data.assignee.value}\n"
-            fallback += "#{data.link.value}\n"
+            fallback += "#{data.link.value}```"
 
             if process.env.HUBOT_SLACK_INCOMING_WEBHOOK?
               robot.emit 'slack.attachment',
