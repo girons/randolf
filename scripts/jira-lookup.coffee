@@ -75,15 +75,17 @@ module.exports = (robot) ->
                 key: 'Created',
                 value: json.fields.created && (new Date(json.fields.created)).toLocaleString() || null
               }
+              'issuetype': {
+                key: 'Issue Type',
+                value: json.fields.issuetype || null
+              }
               'status': {
                 key: 'Status',
                 value: (json.fields.status && json.fields.status.name) || null
               }
             }
 
-            fallback = "Issue:\t #{data.key.value}: #{data.summary.value}\n"
-            if data.description.value?
-              fallback += "Description:\t #{data.description.value}\n"
+            fallback = "#{data.issuetype.value}:\t #{data.key.value}: #{data.summary.value}\n"
             fallback += "Assignee:\t #{data.assignee.key}\nStatus:\t #{data.status.value}\nLink:\t #{data.link.value}\n"
 
             if process.env.HUBOT_SLACK_INCOMING_WEBHOOK?
@@ -91,9 +93,8 @@ module.exports = (robot) ->
                 message: msg.message
                 content:
                   fallback: fallback
-                  title: "#{data.key.value}: #{data.summary.value}"
+                  title: "#{data.issuetype.value} - #{data.key.value}: #{data.summary.value}"
                   title_link: data.link.value
-                  text: data.description.value
                   fields: [
                     {
                       title: data.reporter.key
