@@ -77,7 +77,7 @@ module.exports = (robot) ->
               }
               'issuetype': {
                 key: 'Issue Type',
-                value: json.fields.issuetype || null
+                value: json.fields.issuetype.name || null
               }
               'status': {
                 key: 'Status',
@@ -85,8 +85,9 @@ module.exports = (robot) ->
               }
             }
 
-            fallback = "#{data.issuetype.value}:\t #{data.key.value}: #{data.summary.value}\n"
-            fallback += "Assignee:\t #{data.assignee.key}\nStatus:\t #{data.status.value}\nLink:\t #{data.link.value}\n"
+            fallback = "#{data.issuetype.value} #{data.key.value} (#{data.status.value}) #{data.summary.value}\n"
+            fallback += "Assignee: #{data.assignee.value}\n"
+            fallback += "#{data.link.value}\n"
 
             if process.env.HUBOT_SLACK_INCOMING_WEBHOOK?
               robot.emit 'slack.attachment',
