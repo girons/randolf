@@ -2,7 +2,7 @@
   "name": "randolf",
   "version": "0.0.0",
   "private": true,
-  "author": "sysadmin@sportlobster.com",
+  "author": "george@sportlobster.com",
   "description": "lot's of fun for the whole family",
   "dependencies": {
     "hubot": "^2.16.0",
@@ -14,7 +14,6 @@
     "hubot-help": "^0.1.1",
     "hubot-heroku-keepalive": "^1.0.0",
     "hubot-maps": "0.0.2",
-    "hubot-pugme": "^0.1.0",
     "hubot-redis-brain": "0.0.3",
     "hubot-rules": "^0.1.1",
     "hubot-scripts": "^2.16.2",
