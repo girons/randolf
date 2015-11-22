@@ -4,6 +4,7 @@
   "hubot-heroku-keepalive",
   "hubot-google-images",
   "hubot-google-translate",
+  "hubot-greetings",
   "hubot-maps",
   "hubot-redis-brain",
   "hubot-shipit",
