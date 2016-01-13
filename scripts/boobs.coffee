@@ -11,6 +11,19 @@ module.exports = (robot) ->
         response = JSON.parse(body)
         msg.send "http://media.oboobs.ru/" + el.preview for el in response
 
+  robot.respond /melons/i, (msg) ->
+    number = Math.floor(Math.random() * 3000)
+    msg.http("http://api.oboobs.ru/boobs/" + number + "/1/rank/")
+      .get() (err, res, body) ->
+        response = JSON.parse(body)
+        msg.send "http://media.oboobs.ru/" + el.preview for el in response
+
+  robot.respond /tits/i, (msg) ->
+    number = Math.floor(Math.random() * 3000)
+    msg.http("http://api.oboobs.ru/boobs/" + number + "/1/rank/")
+      .get() (err, res, body) ->
+        response = JSON.parse(body)
+        msg.send "http://media.oboobs.ru/" + el.preview for el in response        
 
   robot.respond /boobes( (\d+))?/i, (msg) ->
     number = Math.floor(Math.random() * 3000)
